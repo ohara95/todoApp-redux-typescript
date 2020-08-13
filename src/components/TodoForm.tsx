@@ -18,7 +18,7 @@ const TodoList = ({ text, setText, todos, setTodos, addTodo }) => {
             setText(e.target.value);
           }}
         />
-        <button onClick={onClickBtn}>追加</button>
+        <button onClick={onClickBtn}>追記</button>
       </form>
     </>
   );
