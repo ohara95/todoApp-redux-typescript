@@ -1,6 +1,15 @@
 import React from "react";
+import { todo } from "./App";
 
-const TodoList = ({ text, setText, todos, setTodos, addTodo }) => {
+interface TodoFormProps {
+  text: string;
+  setText: () => void;
+  todos: todo[];
+  setTodos: todo[];
+  addTodo: () => void;
+}
+
+const TodoForm = ({ text, setText, addTodo }: TodoFormProps) => {
   const onClickBtn = (e: any) => {
     e.preventDefault();
     setText("");
@@ -24,4 +33,4 @@ const TodoList = ({ text, setText, todos, setTodos, addTodo }) => {
   );
 };
 
-export default TodoList;
+export default TodoForm;

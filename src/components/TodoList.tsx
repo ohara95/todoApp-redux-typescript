@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 import { todo } from "./App";
 
 const TodoList = ({ todos }: { todos: todo[] }) => {
-  todos.map((todo) => {
+  return todos.map((todo) => {
     return <TodoItem content={todo.content} />;
   });
 };
