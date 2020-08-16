@@ -3,10 +3,10 @@ import { todo } from "./App";
 
 interface TodoFormProps {
   text: string;
-  setText: () => void;
+  setText: (param: string) => void;
   todos: todo[];
-  setTodos: todo[];
-  addTodo: () => void;
+  setTodos: (param: string[]) => void;
+  addTodo: (param: string) => void;
 }
 
 const TodoForm = ({ text, setText, addTodo }: TodoFormProps) => {
