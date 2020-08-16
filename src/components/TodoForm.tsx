@@ -5,11 +5,11 @@ interface TodoFormProps {
   text: string;
   setText: (param: string) => void;
   todos: todo[];
-  setTodos: (param: string[]) => void;
+  setTodos: (param: todo[]) => void;
   addTodo: (param: string) => void;
 }
 
-const TodoForm = ({ text, setText, addTodo }: TodoFormProps) => {
+export const TodoForm = ({ text, setText, addTodo }: TodoFormProps) => {
   const onClickBtn = (e: any) => {
     e.preventDefault();
     setText("");

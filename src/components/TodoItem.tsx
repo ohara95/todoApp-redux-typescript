@@ -1,6 +1,6 @@
 import React from "react";
 
-const TodoItem = ({ content }: { content: string }) => {
+export const TodoItem = ({ content }: { content: string }) => {
   return (
     <>
       <ul>

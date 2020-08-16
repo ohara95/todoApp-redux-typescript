@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 // import { connect } from "react-redux";
 // import  addTodo  from "../actions";
-import TodoList from "./TodoList";
-import TodoForm from "./TodoForm";
+import { TodoList } from "./TodoList";
+import { TodoForm } from "./TodoForm";
 
 export interface todo {
   content: string;
