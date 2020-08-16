@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-// import { connect } from "react-redux";
-// import  addTodo  from "../actions";
 import { TodoList } from "./TodoList";
 import { TodoForm } from "./TodoForm";
 
@@ -16,9 +14,6 @@ const App = () => {
     const test = [...todos, { content: text }];
     setTodos(test);
   };
-  // const addTodo:<T> =(text:T):void=> {
-  //   setTodos([...todos, { content: text }]);
-  // };
 
   return (
     <>
@@ -34,13 +29,4 @@ const App = () => {
   );
 };
 
-{
-  /* const mapStateToProps(state){
-   return {todos: state.todos}
- } */
-}
-
 export default App;
-{
-  /* export default connect(mapStateToProps,{addTodo})(App); */
-}

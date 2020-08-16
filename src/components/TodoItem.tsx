@@ -3,10 +3,10 @@ import React from "react";
 export const TodoItem = ({ content }: { content: string }) => {
   return (
     <>
-      <ul>
+      <li>
         <input type="checkbox" />
-        <li>{content}</li>
-      </ul>
+        <span>{content}</span>
+      </li>
     </>
   );
 };
