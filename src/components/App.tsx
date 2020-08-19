@@ -1,19 +1,31 @@
 import React, { useState } from "react";
 import { TodoList } from "./TodoList";
 import { TodoForm } from "./TodoForm";
+import { useSelector } from "react-redux";
+import { RootState } from "../stores";
+import { useDispatch } from "react-redux";
+import { setTodo, setText } from "../stores/todo";
 
 export interface todo {
   content: string;
 }
 
+interface RootState {
+  user: string;
+  name: string;
+}
+
 const App = () => {
-  const [text, setText] = useState("");
+  // const dispatch = useDispatch();
   const [todos, setTodos] = useState<todo[]>([]);
+  const [text, setText] = useState("");
 
   const addTodo = (text: string): void => {
-    const test = [...todos, { content: text }];
-    setTodos(test);
+    setTodos([...todos, { content: text }]);
   };
+
+  const user = useSelector((state: RootState) => state.user.name);
+  console.log(user);
 
   return (
     <>
