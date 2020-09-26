@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FormEvent } from "react";
 import { todo } from "./App";
 
 interface TodoFormProps {
@@ -10,8 +10,8 @@ interface TodoFormProps {
 }
 
 export const TodoForm = ({ text, setText, addTodo }: TodoFormProps) => {
-  const onClickBtn = (e: any) => {
-    e.preventDefault();
+  const onClickBtn = (event: FormEvent) => {
+    event.preventDefault();
     setText("");
     addTodo(text);
   };
