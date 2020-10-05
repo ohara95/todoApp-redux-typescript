@@ -15,6 +15,7 @@ const taskModule = createSlice({
   initialState,
   // 返り値はstateになる
   reducers: {
+    // PayloadActionには何が入るか分からないからジェネリクス
     addTodo: (state: Todo[], action: PayloadAction<string>) => {
       return [
         ...state,

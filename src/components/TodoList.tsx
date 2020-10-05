@@ -1,25 +1,18 @@
 import React from "react";
-import { TodoItem } from "./TodoItem";
-import { todo } from "./App";
+import { useSelector } from "react-redux";
+import { RootState } from "../rootReducer";
+import TodoItem from "./TodoItem";
 
-export const TodoList = ({
-  todos,
-  setTodos,
-}: {
-  todos: todo[];
-  setTodos: (param: todo[]) => void;
-}) => {
+const TodoList = () => {
+  // todosはrootReducerの名前
+  const todos = useSelector((state: RootState) => state.todos);
+
   return (
     <>
       {todos.map((todo) => {
         return (
-          <ul key={todo.id} style={{ listStyle: "none" }}>
-            <TodoItem
-              content={todo.content}
-              id={todo.id}
-              todos={todos}
-              setTodos={setTodos}
-            />
+          <ul key={todo.id}>
+            <TodoItem todo={todo} />
           </ul>
         );
       })}

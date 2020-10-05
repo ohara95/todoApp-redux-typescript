@@ -1,33 +1,26 @@
 import React, { FC } from "react";
-import { todo } from "./App";
+import { addTodo, doneTask, deleteTask } from "../modules/tasksModules";
+import { useSelector, useDispatch } from "react-redux";
+import { Todo } from "./Types";
 
-interface TodoItemProps {
-  content: string;
-  id: string;
-  todos: todo[];
-  setTodos: (param: todo[]) => void;
-}
-// 同じエラー
-// const x:string =20
-// TodoItem:TodoItemProps
-export const TodoItem: FC<TodoItemProps> = ({
-  content,
-  id,
-  todos,
-  setTodos,
-}) => {
-  const deleteItem = (id: string): void => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
+type Props = {
+  todo: Todo;
+};
 
+const TodoItem: FC<Props> = ({ todo }) => {
+  const dispatch = useDispatch();
   return (
     <>
-      <li>
-        <input type="checkbox" />
-        <span>{content}</span>
+      <li style={{ listStyle: "none" }} key={todo.id}>
+        <input
+          type="checkbox"
+          checked={todo.done}
+          onClick={() => dispatch(doneTask(todo))}
+        />
+        {todo.content}
         <button
           onClick={() => {
-            deleteItem(id);
+            dispatch(deleteTask(todo));
           }}
         >
           削除

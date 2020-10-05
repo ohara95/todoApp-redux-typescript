@@ -1,25 +1,22 @@
-import React, { FormEvent } from "react";
-import { todo } from "./App";
+import React from "react";
+import { addTodo, doneTask, deleteTask } from "../modules/tasksModules";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../rootReducer";
 
-interface TodoFormProps {
-  text: string;
-  setText: (param: string) => void;
-  todos: todo[];
-  setTodos: (param: todo[]) => void;
-  addTodo: (param: string) => void;
-}
+const TodoForm = () => {
+  const [text, setText] = React.useState("");
+  const dispatch = useDispatch();
+  const todos = useSelector((state: RootState) => state.todos);
 
-export const TodoForm = ({ text, setText, addTodo }: TodoFormProps) => {
-  const onClickBtn = (event: FormEvent) => {
-    event.preventDefault();
+  const addTodoBtn = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    dispatch(addTodo(text));
     setText("");
-    addTodo(text);
   };
 
   return (
     <>
-      <h1>TodoApp</h1>
-      <form>
+      <form onSubmit={addTodoBtn}>
         <input
           type="text"
           value={text}
@@ -27,7 +24,7 @@ export const TodoForm = ({ text, setText, addTodo }: TodoFormProps) => {
             setText(e.target.value);
           }}
         />
-        <button onClick={onClickBtn}>追記</button>
+        <button>追加！！！！！！</button>
       </form>
     </>
   );
